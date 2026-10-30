@@ -33,17 +33,22 @@ function diffusion_1d(; n=1_000, nsteps=5_000_000)
         #
         # TODO: Restrict the loop below to "inner cells"
         #
-        for i in ??? # for each cell that doesn't depend on ghost cells
-            diffusion_stencil!(f, f_prev, c, i)
-        end
+
+        #uncomment the following lines
+        # for i in ??? # for each cell that doesn't depend on ghost cells
+        #     diffusion_stencil!(f, f_prev, c, i)
+        # end
 
         MPI.Waitall(reqs) # ensure that communication has happened (blocking)
 
         #
         # TODO: Apply stencil for remaining cells that depend on ghost cells.
         # 
-        diffusion_stencil!(f, f_prev, c, ???)
-        diffusion_stencil!(f, f_prev, c, ???)
+
+        
+        #uncomment the following lines
+        # diffusion_stencil!(f, f_prev, c, ???)
+        # diffusion_stencil!(f, f_prev, c, ???)
 
         f, f_prev = f_prev, f
 
