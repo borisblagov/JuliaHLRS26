@@ -1,5 +1,4 @@
 # 2D linear diffusion solver - serial, loop version
-using OhMyThreads
 using Printf
 using Plots
 include(joinpath(@__DIR__, "shared.jl"))
